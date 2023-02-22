@@ -10,6 +10,7 @@
   <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
   <!-- Styles -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/5c4bcdf4b6.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="antialiased">

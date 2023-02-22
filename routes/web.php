@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\RegisterUserController;
@@ -28,8 +29,14 @@ Route::get('/login', [SessionController::class, 'create'])->name('login')->middl
 Route::post('/login', [SessionController::class, 'store'])->middleware('guest');
 Route::get('/logout', [SessionController::class, 'destroy'])->middleware('auth');
 Route::middleware(['auth', 'admin'])->group(function () {
-  Route::get('/admin/projects', [ProjectController::class, 'index']);
+  Route::get('/admin/projects', [AdminController::class, 'index']);
   Route::get('/admin/projects/{project}', [ProjectController::class, 'show']);
+
+  Route::get('/admin/projects/{project}/edit', [ProjectController::class, 'editProject']);
+  Route::get('/admin/projects/{project}/delete', [ProjectController::class, 'deleteProject']);
+
+  Route::get('/admin/projects/{user}/edit', [ProjectController::class, 'editUser']);
+  Route::get('/admin/projects/{user}/delete', [ProjectController::class, 'deleteUser']);
 });
 
 Route::fallback(function () {
