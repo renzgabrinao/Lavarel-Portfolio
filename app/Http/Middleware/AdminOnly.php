@@ -17,8 +17,7 @@ class AdminOnly
    */
   public function handle(Request $request, Closure $next)
   {
-    $user = $request->user();
-    if (!$user?->isAdmin()) {
+    if (auth()->user()?->email !== 'test@home.com') {
       abort(Response::HTTP_FORBIDDEN);
     }
 

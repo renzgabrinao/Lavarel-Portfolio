@@ -25,7 +25,7 @@
         @auth
         <span class="text-xs font-bold uppercase"> {{ auth()->user()->name }} </span>
         @if (auth()->user()->isAdmin())
-        <a href="/admin/projects" class="ml-3 text-xs font-bold uppercase">Admin</a>
+        <a href="/admin" class="ml-3 text-xs font-bold uppercase">Admin</a>
         @endif
         <a href="/logout" class="ml-3 text-xs font-bold uppercase">Logout</a>
         @else
@@ -36,25 +36,26 @@
 
   </header>
   <main class="relative flex justify-center min-h-screen bg-gray-200 sm:items-center py-4 sm:pt-0">
-    <div class="absolute top-10 left-[calc(50%_-_150px)]">
+    <div class="absolute top-10 left-[calc(50%_-_144px)] w-72 h-9">
       @if (session()->has('success'))
-      <div class="flex justify-center items-center bg-gray-100 w-300">
-        <p class="text-xs font-bold bg-white uppercase border border-green-700 rounded px-4 py-2">
-          {{ session()->get('success') }}
-        </p>
-      </div>
+
+      <p class="h-full text-xs text-center leading-9 font-bold bg-white uppercase border border-green-700 rounded">
+        {{ session()->get('success') }}
+      </p>
+
       @elseif (session()->has('error'))
-      <div class="flex justify-center items-center bg-gray-100 w-300">
-        <p class="text-xs color-red-500 font-bold bg-white uppercase border border-red-700 rounded px-4 py-2">
-          {{ session()->get('error') }}
-        </p>
-      </div>
+
+      <p
+        class="h-full text-xs text-center leading-9 color-red-500 font-bold bg-white uppercase border border-red-700 rounded">
+        {{ session()->get('error') }}
+      </p>
+
       @endif
     </div>
     {{ $content }}
   </main>
-  <footer class="h-12 bg-gray-200 border-t-1 border-black">
-    <p class="m-auto">&copy;2023 Renz Gabrinao</p>
+  <footer class="h-10 bg-gray-200 border-t-1 border-black">
+    <p class="h-full w-full text-center text-xl">&copy;2023 Renz Gabrinao</p>
   </footer>
 </body>
 

@@ -1,17 +1,18 @@
-@props(['project', 'showBody' => false])
+@props(['project', 'projects_tags', 'tags', 'showBody' => false])
+
 
 <div class="p-6  bg-white overflow-hidden shadow sm:rounded-lg">
   <div class="text-xl font-bold mb-2">
-    <a href="/projects/{{ $project->id }}">{{ $project->title }}</a>
+    <a href="/projects/{{ $project->slug }}">{{ $project->title }}</a>
   </div>
   @if ($showBody)
-  <img src="{{URL('storage/app/public/images/graph-placeholder.jpg')}}" alt="Placeholder image">
+  <img src="{{ asset('storage/images/graph-placeholder.jpg') }}" alt="Placeholder image">
   @endif
 
 
   <div class="mb-5">
     @if (! $showBody)
-    <img src="{{URL('storage/app/public/images/laptop-thumb.png')}}" alt="Placeholder image">
+    <img src="{{ asset('storage/images/laptop-thumb.png') }}" alt="Placeholder image">
     @endif
     {!! $project->excerpt !!}
   </div>
@@ -21,7 +22,19 @@
   @endif
 
   @if ($project->category)
-  <a href="/categories/{{ $project->category->slug }}">Category: {{ $project->category->name }}</a>
+  <div>
+    Category:
+    <a href="/categories/{{ $project->category->slug }}">{{ $project->category->name }}</a>
+  </div>
+
+  @endif
+  @if (count($project->tags))
+  <div>
+    Tags:
+    @foreach ($project->tags as $tag)
+    <a href="/projects/tags/{{ $tag->slug }}">{{ $tag->name }}</a>
+    @endforeach
+  </div>
   @endif
 
 </div>

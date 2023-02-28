@@ -12,4 +12,20 @@ class Project extends Model
   {
     return $this->belongsTo(Category::class);
   }
+
+  public function tags()
+  {
+    return $this->belongsToMany(Tag::class, 'projects_tags', 'projects_id', 'tags_id');
+  }
+  protected $fillable = [
+    'title',
+    'slug',
+    'excerpt',
+    'body',
+    'url',
+    'published_date',
+    'image',
+    'thumb',
+    'category_id'
+  ];
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Models\Category;
@@ -11,27 +12,13 @@ class AdminController extends Controller
 {
   public function index()
   {
+    $currentUser = auth()->user();
+
     return view('admin.index')
       ->with('projects', Project::all())
-      ->with('users', User::all());
-  }
-
-  public function editProject(Project $project)
-  {
-
-  }
-
-  public function deleteProject(Project $project)
-  {
-
-  }
-  public function editUser(User $user)
-  {
-
-  }
-
-  public function deleteUser(User $user)
-  {
-
+      ->with('categories', Category::all())
+      ->with('tags', Tag::all())
+      ->with('users', User::all())
+      ->with('currentUser', $currentUser);
   }
 }
