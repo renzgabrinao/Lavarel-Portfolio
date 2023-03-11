@@ -3,11 +3,11 @@
     <div class="flex flex-col">
       @if ($project)
       <h1 class="text-center font-bold text-xl mb-3">Edit Project: {{ $project->title }}</h1>
-      <form method="POST" action="/admin/projects/{{ $project->slug }}/edit" enctype="multipart/form-data">
+      <form method="POST" action="/admin/project/{{ $project->slug }}/edit" enctype="multipart/form-data">
         @method('PATCH')
         @else
         <h1 class="text-center font-bold text-xl mb-3">Create Project</h1>
-        <form method="POST" action="/admin/projects/create" enctype="multipart/form-data">
+        <form method="POST" action="/admin/project/create" enctype="multipart/form-data">
           @endif
           @csrf
 

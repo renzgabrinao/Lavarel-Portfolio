@@ -60,4 +60,10 @@ class CategoryController extends Controller
     // Redirect to the Admin Dashboard
     return redirect('/admin');
   }
+
+  public function getCategoriesJSON()
+  {
+    $categories = Category::all();
+    return response()->json($categories);
+  }
 }

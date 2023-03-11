@@ -60,4 +60,10 @@ class TagController extends Controller
     // Redirect to the Admin Dashboard
     return redirect('/admin');
   }
+
+  public function getTagsJSON()
+  {
+    $tags = Tag::all();
+    return response()->json($tags);
+  }
 }

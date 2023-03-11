@@ -146,5 +146,10 @@ class ProjectController extends Controller
     // Redirect to the Admin Dashboard
     return redirect('/admin');
   }
+  public function getProjectsJSON()
+  {
+    $projects = Project::with(['category', 'tags'])->get();
+    return response()->json($projects);
+  }
 
 }

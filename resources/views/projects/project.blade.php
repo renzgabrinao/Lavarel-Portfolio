@@ -1,6 +1,6 @@
 <x-layout>
   <x-slot name="content">
-    <a class="absolute top-3 left-3 underline hover:underline-offset-2" href="http://localhost/projects">
+    <a class="absolute top-3 left-3 underline hover:underline-offset-2 text-white" href="http://localhost/projects">
       Back to Projects
     </a>
     <div class="mt-6">

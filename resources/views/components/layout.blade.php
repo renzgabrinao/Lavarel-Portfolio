@@ -14,28 +14,28 @@
 </head>
 
 <body class="antialiased">
-  <header class="px-6 py-8">
-    <nav class="md:flex md:justify-between md:items-center">
+  <header class="px-6 py-8 bg-slate-700">
+    <nav class="flex flex-col sm:flex-row justify-between items-center text-slate-100 ">
       <div>
-        <a href="/" class="text-s font-bold uppercase">Home</a>
-        <a href="/projects" class="ml-3 text-xs font-bold uppercase">Projects</a>
-        <a href="/about" class="ml-3 text-xs font-bold uppercase">About</a>
+        <a href="/" class="text-2xl font-bold uppercase hover:text-slate-300">Home</a>
+        <a href="/projects" class="ml-4 text-xl font-bold uppercase hover:text-slate-300">Projects</a>
+        <a href="/about" class="ml-4 text-xl font-bold uppercase hover:text-slate-300">About</a>
       </div>
-      <div class="mt-4 md:mt-0">
+      <div class="">
         @auth
-        <span class="text-xs font-bold uppercase"> {{ auth()->user()->name }} </span>
+        <span class="text-xl font-bold uppercase"> {{ auth()->user()->name }} </span>
         @if (auth()->user()->isAdmin())
-        <a href="/admin" class="ml-3 text-xs font-bold uppercase">Admin</a>
+        <a href="/admin" class="ml-4 text-xl font-bold uppercase hover:text-slate-300">Admin</a>
         @endif
-        <a href="/logout" class="ml-3 text-xs font-bold uppercase">Logout</a>
+        <a href="/logout" class="ml-4 text-xl font-bold uppercase hover:text-slate-300">Logout</a>
         @else
-        <a href="/login" class="ml-3 text-xs font-bold uppercase">Log In</a>
+        <a href="/login" class="ml-4 text-xl font-bold uppercase hover:text-slate-300">Log In</a>
         @endauth
       </div>
     </nav>
 
   </header>
-  <main class="relative flex justify-center min-h-screen bg-gray-200 sm:items-center py-4 sm:pt-0">
+  <main class="relative flex justify-center min-h-screen bg-slate-900 sm:items-center p-5 sm:p-10">
     <div class="absolute top-10 left-[calc(50%_-_144px)] w-72 h-9">
       @if (session()->has('success'))
 
@@ -54,8 +54,8 @@
     </div>
     {{ $content }}
   </main>
-  <footer class="h-10 bg-gray-200 border-t-1 border-black">
-    <p class="h-full w-full text-center text-xl">&copy;2023 Renz Gabrinao</p>
+  <footer class="h-10 bg-slate-900 border-t-1 border-black">
+    <p class="h-full w-full text-center text-xl leading-10 text-white">&copy;2023 Renz Gabrinao</p>
   </footer>
 </body>
 

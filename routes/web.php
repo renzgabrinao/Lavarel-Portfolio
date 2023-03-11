@@ -34,8 +34,6 @@ Route::post('/login', [SessionController::class, 'store'])->middleware('guest');
 
 Route::get('/logout', [SessionController::class, 'destroy'])->middleware('auth');
 
-
-
 Route::middleware(['auth', 'admin'])->group(function () {
   Route::get('/admin', [AdminController::class, 'index']);
 
@@ -46,7 +44,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
   Route::get('/admin/project/{project:slug}/edit', [ProjectController::class, 'edit']);
   Route::patch('/admin/project/{project:slug}/edit', [ProjectController::class, 'update']);
   // delete project
-  Route::delete('/admin/projects/{project:slug}/delete', [ProjectController::class, 'destroy']);
+  Route::delete('/admin/project/{project:slug}/delete', [ProjectController::class, 'destroy']);
 
   // create and store category
   Route::get('/admin/category/create', [CategoryController::class, 'create']);
@@ -76,6 +74,10 @@ Route::middleware(['auth', 'admin'])->group(function () {
   Route::delete('/admin/user/{user:name}/delete', [RegisterUserController::class, 'destroy']);
 
 });
+
+Route::get('/api/projects', [ProjectController::class, 'getProjectsJSON']);
+Route::get('/api/categories', [CategoryController::class, 'getCategoriesJSON']);
+Route::get('/api/tags', [TagController::class, 'getTagsJSON']);
 
 Route::fallback(function () {
 

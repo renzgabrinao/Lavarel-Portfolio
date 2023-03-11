@@ -1,7 +1,7 @@
 <x-layout>
   <x-slot name="content">
     @if ($category)
-    <a class="absolute top-3 left-3 underline hover:underline-offset-2" href="http://localhost/projects">
+    <a class="absolute top-3 left-3 underline hover:underline-offset-2 text-white" href="http://localhost/projects">
       Back to Projects
     </a>
     <div class="absolute top-20 text-2xl">{{ $category }} Projects</div>
@@ -16,7 +16,7 @@
       </section>
 
       @if (count($projects))
-      <div class="text-xs w-full text-right">{{ count($projects) }} projects to peep.</div>
+      <div class="text-xs w-full text-right text-white">{{ count($projects) }} projects to peep.</div>
       @else
       <div>Nothing to showcase, yet.</div>
       @endif
