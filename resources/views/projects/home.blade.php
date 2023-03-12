@@ -1,7 +1,7 @@
 <x-layout>
   <x-slot name="content">
 
-    <div>
+    <div class="text-3xl font-bold text-white">
       Welcome Home
     </div>
 

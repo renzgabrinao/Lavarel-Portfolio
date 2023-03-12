@@ -25,6 +25,8 @@ Route::get('/about', [ProjectController::class, 'about']);
 Route::get('/projects', [ProjectController::class, 'index']);
 Route::get('/projects/{project:slug}', [ProjectController::class, 'show']);
 Route::get('/categories/{category:slug}', [ProjectController::class, 'listByCategory']);
+Route::get('/tags/{tag:slug}', [ProjectController::class, 'listByTag']);
+
 
 Route::get('/register', [RegisterUserController::class, 'create']);
 Route::post('/register', [RegisterUserController::class, 'store']);

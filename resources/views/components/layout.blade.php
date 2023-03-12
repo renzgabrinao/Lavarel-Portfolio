@@ -55,7 +55,7 @@
     {{ $content }}
   </main>
   <footer class="h-10 bg-slate-900 border-t-1 border-black">
-    <p class="h-full w-full text-center text-xl leading-10 text-white">&copy;2023 Renz Gabrinao</p>
+    <p class="h-full w-full text-center text-xs leading-10 text-white">&copy;2023 Renz Gabrinao</p>
   </footer>
 </body>
 

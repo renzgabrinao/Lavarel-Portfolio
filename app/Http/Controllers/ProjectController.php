@@ -25,7 +25,8 @@ class ProjectController extends Controller
   {
     return view('projects.index')
       ->with('projects', Project::all())
-      ->with('category', null);
+      ->with('category', null)
+      ->with('tag', null);
   }
 
   public function show(Project $project)
@@ -36,7 +37,16 @@ class ProjectController extends Controller
   {
     return view('projects.index')
       ->with('projects', $category->projects)
+      ->with('tag', null)
       ->with('category', $category['name']);
+  }
+
+  public function listByTag(Tag $tag)
+  {
+    return view('projects.index')
+      ->with('projects', $tag->projects)
+      ->with('category', null)
+      ->with('tag', $tag['name']);
   }
 
   // GET create

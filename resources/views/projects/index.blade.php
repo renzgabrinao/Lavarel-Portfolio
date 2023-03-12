@@ -4,7 +4,13 @@
     <a class="absolute top-3 left-3 underline hover:underline-offset-2 text-white" href="http://localhost/projects">
       Back to Projects
     </a>
-    <div class="absolute top-20 text-2xl">{{ $category }} Projects</div>
+    <div class="absolute top-20 text-3xl font-bold text-white">{{ $category }} Projects</div>
+    @endif
+    @if ($tag)
+    <a class="absolute top-3 left-3 underline hover:underline-offset-2 text-white" href="http://localhost/projects">
+      Back to Projects
+    </a>
+    <div class="absolute top-20 text-3xl font-bold text-white">{{ $tag }} Projects</div>
     @endif
     <div class="mt-6">
       <section class="grid grid-cols-1 md:grid-cols-2 gap-2">

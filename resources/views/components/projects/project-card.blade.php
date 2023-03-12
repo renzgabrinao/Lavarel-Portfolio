@@ -11,7 +11,7 @@
     @if ($project->image)
     {{ asset('storage/' . $project->image) }}
     @else
-    {{ asset('storage/images/graph-placeholder.jpg') }}
+    {{ asset('storage/images/image-placeholder.jpg') }}
     @endif" alt="Placeholder image">
   </div>
   @endif
@@ -24,7 +24,7 @@
       @if($project->thumb)
       {{ asset('storage/' . $project->thumb) }}
       @else 
-      {{ asset('storage/images/laptop-thumb.png') }}
+      {{ asset('storage/images/thumb-placeholder.png') }}
       @endif" alt="Placeholder image">
     </a>
     @endif
@@ -49,7 +49,7 @@
   <div class="px-4 sm:px-8 md:px-12 lg:px-20 text-sm">
     Tags:
     @foreach ($project->tags as $tag)
-    <a class="hover:underline" href="/projects/tags/{{ $tag->slug }}">{{ $tag->name }}</a>
+    <a class="hover:underline" href="/tags/{{ $tag->slug }}">{{ $tag->name }}</a>
     @endforeach
   </div>
   @endif
